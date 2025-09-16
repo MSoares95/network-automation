@@ -1,0 +1,17 @@
+- name: R1
+  host: 192.168.136.134
+  username: admin
+  password: admin
+  device_type: cisco_ios
+
+- name: R2
+  host: 192.168.136.135
+  username: admin
+  password: admin
+  device_type: cisco_ios
+
+- name: FW1
+  host: 192.168.136.136
+  username: cisco
+  password: cisco
+  device_type: cisco_asa
