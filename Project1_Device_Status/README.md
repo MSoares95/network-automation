@@ -13,7 +13,7 @@
 - `screenshots/` → example outputs
 
 ## Run the script
-```bash
+
 python3 project1_netmiko_show.py
 
 
@@ -23,8 +23,12 @@ python3 project1_netmiko_show.py
 <img width="940" height="254" alt="image" src="https://github.com/user-attachments/assets/cce49a4d-c4de-4e02-8716-f360fa555ddf" />
 Project1_output_R1.png – screenshot of script output showing version and interfaces.
 
+
+
 <img width="940" height="216" alt="image" src="https://github.com/user-attachments/assets/78b30850-7296-41cd-b25e-556e9f1853f2" />
 Project1_output_R2.png – screenshot of script output showing version and interfaces.
+
+
 
 <img width="940" height="207" alt="image" src="https://github.com/user-attachments/assets/2406e192-a84c-4aa1-a425-90b4af47c27d" />
 Project1_output_FW1.png – screenshot of script output showing version and interfaces.
