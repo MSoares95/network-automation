@@ -1,10 +1,10 @@
 
 ---
 
-# 📂 Project 1 README.md (`Project1_Device_Version_Interface/README.md`)  
+# 📂 Project 1 README.md (`Project1_Device_Status/README.md`)  
 
 ```markdown
-# Project 1 - Device Version & Interface Status 🔍
+# Project 1 - Device Status 🔍
 
 ## 🎯 Goal
 The purpose of this project is to:
