@@ -14,7 +14,7 @@
 
 ## Run the script
 ```bash
-python3 project1_netmiko_show.py```
+python3 project1_netmiko_show.py
 
 
 ## Result
