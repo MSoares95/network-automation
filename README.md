@@ -39,7 +39,7 @@ The focus is on **Cisco and Python/Ansible automation**.
 - [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation)  
 - Devices accessible via SSH  
 
-```bash
+
 pip install netmiko pyyaml
 
 
