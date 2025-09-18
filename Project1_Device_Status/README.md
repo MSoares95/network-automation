@@ -2,6 +2,7 @@
 
 <img width="421" height="291" alt="image" src="https://github.com/user-attachments/assets/e9c711dc-2b4c-4e4d-a9c9-118a5f9d05f7" />
 
+Medium: https://medium.com/@mickaelsoares/network-automation-with-python-and-netmiko-get-device-status-0ad735b7129d
 
 ## Goal
 - Retrieve software version from devices
