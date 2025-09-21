@@ -1,0 +1,26 @@
+# ---------------------------
+# Cisco IOS e IOS XE (CSR)
+# ---------------------------
+cisco_ios:
+  - banner motd %*   Unauthorized access or use is strictly prohibited.     *%
+  - ntp server 192.168.100.10
+  - logging on
+  - logging host 192.168.100.20
+  - logging buffered informational
+  - logging console informational
+  - logging trap informational
+  
+# ---------------------------
+# Cisco ASA
+# ---------------------------
+cisco_asa:
+  - no banner motd
+  - banner motd "Unauthorized access or use is strictly prohibited!"
+  - ntp server 192.168.100.10
+  - logging enable
+  - logging host MGMT 192.168.100.20
+  - logging buffered informational
+  - logging console informational
+  - logging trap informational
+  - logging timestamp
+  

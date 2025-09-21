@@ -1,0 +1,19 @@
+- name: R1
+  host: 192.168.136.134
+  username: cisco
+  password: cisco
+  device_type: cisco_ios
+
+- name: R2
+  host: 192.168.136.135
+  username: cisco
+  password: cisco
+  device_type: cisco_ios
+  ssh_config_file: ~/.ssh/config
+  
+- name: FW1
+  host: 192.168.136.136
+  username: cisco
+  password: cisco
+  secret: cisco
+  device_type: cisco_asa
