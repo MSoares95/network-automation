@@ -1,0 +1,29 @@
+---
+- name: Test Network Connectivity
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Ping gateway from IOS devices
+      when: ansible_network_os == "ios"
+      cisco.ios.ios_ping:
+        dest: 192.168.136.131
+      register: ping_result_ios
+
+    - name: Show IOS ping result
+      when: ansible_network_os == "ios"
+      debug:
+        var: ping_result_ios
+
+    - name: Ping gateway from ASA (using cli_command)
+      when: ansible_network_os == "asa"
+      ansible.netcommon.cli_command:
+        command: ping 192.168.136.131
+      register: ping_result_asa
+
+    - name: Show ASA ping result
+      when: ansible_network_os == "asa"
+      debug:
+        var: ping_result_asa.stdout_lines
+
