@@ -65,9 +65,9 @@ Inventory file: defines groups of devices and connection variables.
 - network_cli connection: uses SSH with privilege elevation (enable mode).
 
 🚀 Next Steps
-- Lab 2: Configure NTP and Logging using Ansible.
-- Lab 3: Automate ASA firewall configurations.
-- Lab 4: Initialize and configure Cisco Switches.
+- Lab 2: Gathering Facts using Ansible.
+- Lab 3: Configure NTP and Logging using Ansible.
+- Lab 4: Configure VLANS and Trunks on Cisco Switches.
 
 📚 References
 - Ansible Network Getting Started Guide - https://docs.ansible.com/ansible/latest/network/getting_started/index.html
