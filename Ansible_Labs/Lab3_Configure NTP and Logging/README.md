@@ -81,7 +81,6 @@ The playbook applies consistent time and logging configurations across all netwo
 Sample IOS configuration after execution:
 
 ```bash
-Copiar código
 R1#show run | include ntp|logging
 ntp server 192.168.100.10
 logging host 192.168.100.20
@@ -106,9 +105,9 @@ Concept	Description
 - Syslog sends event messages to a central logging server
 - cisco.ios.ios_config is the module for sending config commands to IOS devices
 - cisco.asa.asa_config is the module for sending config commands to ASA firewalls
-- Variables	Make configurations reusable and easy to update
+- Variables	make configurations reusable and easy to update
 
 ---
 
 ## 🚀 Next Step
-Proceed to Lab 4 — Configuring VLANs and Trunks across Multiple Switches.
+Lab 4 — Configuring VLANs and Trunks across Multiple Switches.
