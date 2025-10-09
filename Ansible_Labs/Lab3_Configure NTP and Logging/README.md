@@ -6,6 +6,12 @@ This ensures time synchronization and centralized log collection across the netw
 
 ---
 
+## 🌐 Medium Link: 
+https://medium.com/@mickaelsoares/network-automation-with-ansible-lab3-configure-ntp-and-logging-864af70865cf
+
+---
+
+
 ## 🧰 Requirements
 - Ansible control node (Linux environment)
 - SSH connectivity to Cisco devices
