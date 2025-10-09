@@ -1,0 +1,94 @@
+---
+- name: Configure NTP and Logging on Cisco Devices
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ios_ntp_server: "192.168.100.10"
+    ios_logging_host: "192.168.100.20"
+    asa_ntp_server: "192.168.100.10"
+    asa_logging_host: "192.168.100.20"
+
+  tasks:
+
+  # =========================
+  # Configure NTP on IOS
+  # =========================
+  - name: Configure NTP on IOS devices
+    ansible.netcommon.cli_config:
+      config: "ntp server {{ ios_ntp_server }}"
+    when: ansible_network_os == "ios"
+
+  # =========================
+  # Configure Logging on IOS
+  # =========================
+  - name: Configure logging on IOS devices
+    ansible.netcommon.cli_config:
+      config: |
+        logging host {{ ios_logging_host }}
+        logging trap informational
+    when: ansible_network_os == "ios"
+
+  # =========================
+  # Configure NTP on ASA
+  # =========================
+  - name: Configure NTP on ASA devices
+    ansible.netcommon.cli_config:
+      config: "ntp server {{ asa_ntp_server }}"
+    when: ansible_network_os == "asa"
+
+  # =========================
+  # Configure Logging on ASA
+  # =========================
+  - name: Configure logging on ASA devices
+    ansible.netcommon.cli_config:
+      config: "logging host {{ asa_logging_host }}"
+    when: ansible_network_os == "asa"
+
+  # =========================
+  # Verify NTP on IOS
+  # =========================
+  - name: Verify NTP on IOS devices
+    ansible.netcommon.cli_command:
+      command: "show ntp status"
+    register: ntp_status_ios
+    when: ansible_network_os == "ios"
+
+  # =========================
+  # Verify Logging on IOS
+  # =========================
+  - name: Verify logging on IOS devices
+    ansible.netcommon.cli_command:
+      command: "show logging"
+    register: logging_status_ios
+    when: ansible_network_os == "ios"
+
+  # =========================
+  # Verify NTP on ASA
+  # =========================
+  - name: Verify NTP on ASA devices
+    ansible.netcommon.cli_command:
+      command: "show ntp status"
+    register: ntp_status_asa
+    when: ansible_network_os == "asa"
+
+  # =========================
+  # Verify Logging on ASA
+  # =========================
+  - name: Verify logging on ASA devices
+    ansible.netcommon.cli_command:
+      command: "show logging"
+    register: logging_status_asa
+    when: ansible_network_os == "asa"
+
+  # =========================
+  # Show verification results safely
+  # =========================
+  - name: Show verification results
+    debug:
+      msg: |
+        IOS NTP: {{ ntp_status_ios.stdout | default('N/A') }}
+        IOS Logging: {{ logging_status_ios.stdout | default('N/A') }}
+        ASA NTP: {{ ntp_status_asa.stdout | default('N/A') }}
+        ASA Logging: {{ logging_status_asa.stdout | default('N/A') }}
+
