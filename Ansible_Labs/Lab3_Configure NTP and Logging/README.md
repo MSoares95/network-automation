@@ -56,8 +56,11 @@ ansible_become_password=cisco
 
 ---
 
-## 🧠 Playbook — playbooks/config_ntp_logging.yml
+## 🧠 Playbook 
 
+playbooks/config_ntp_logging.yml
+
+https://github.com/MSoares95/network-automation/blob/main/Ansible_Labs/Lab3_Configure%20NTP%20and%20Logging/playbooks/config_ntp_logging.yml
 
 ---
 
