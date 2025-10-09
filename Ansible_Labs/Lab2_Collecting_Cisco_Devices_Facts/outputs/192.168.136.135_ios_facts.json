@@ -1,0 +1,21 @@
+{
+    "ansible_facts": {
+        "ansible_net_api": "cliconf",
+        "ansible_net_gather_network_resources": [],
+        "ansible_net_gather_subset": [
+            "default"
+        ],
+        "ansible_net_hostname": "R2",
+        "ansible_net_image": "flash0:/vios-adventerprisek9-m",
+        "ansible_net_iostype": "IOS",
+        "ansible_net_model": "IOSv",
+        "ansible_net_operatingmode": "autonomous",
+        "ansible_net_python_version": "3.10.12",
+        "ansible_net_serialnum": "9S2J1W4VT56RJEDPI0FCA",
+        "ansible_net_system": "ios",
+        "ansible_net_version": "15.9(3)M9",
+        "ansible_network_resources": {}
+    },
+    "changed": false,
+    "failed": false
+}

@@ -1,0 +1,37 @@
+# playbooks/gather_facts.yml
+---
+- name: Gather and save device facts (IOS and ASA)
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Gather IOS facts
+      when: "'asa' not in ansible_network_os"
+      cisco.ios.ios_facts:
+      register: ios_facts
+
+    - name: Save IOS facts to JSON file
+      when: "'asa' not in ansible_network_os"
+      copy:
+        content: "{{ ios_facts | to_nice_json }}"
+        dest: "outputs/{{ inventory_hostname }}_ios_facts.json"
+
+    - name: Gather ASA facts (show version)
+      when: "'asa' in ansible_network_os"
+      cisco.asa.asa_command:
+        commands:
+          - show version
+          - show interface ip brief
+      register: asa_facts
+
+    - name: Save ASA output to JSON file
+      when: "'asa' in ansible_network_os"
+      copy:
+        content: "{{ asa_facts | to_nice_json }}"
+        dest: "outputs/{{ inventory_hostname }}_asa_facts.json"
+
+    - name: Display summary
+      debug:
+        msg: "Facts gathered and saved for {{ inventory_hostname }}"
+
