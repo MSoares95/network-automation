@@ -25,5 +25,6 @@ python3 project1_netmiko_show.py
 
 <img width="940" height="216" alt="image" src="https://github.com/user-attachments/assets/78b30850-7296-41cd-b25e-556e9f1853f2" />
 
+Move Project1_Device_Status to Python+Netmiko_Labs
 <img width="940" height="216" alt="image" src="https://github.com/user-attachments/assets/2406e192-a84c-4aa1-a425-90b4af47c27d" />
 
