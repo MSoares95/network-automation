@@ -1,0 +1,9 @@
+---
+domain_name: lab.local
+default_gateway: 192.168.136.2
+
+switch_mgmt_ips:
+  S1: 192.168.136.141
+  S2: 192.168.136.142
+  S3: 192.168.136.143
+

@@ -1,0 +1,70 @@
+---
+- name: Configure VLANs and Trunks on Cisco Switches
+  hosts: switches
+  gather_facts: no
+  connection: network_cli
+
+  vars:
+    vlan_list:
+      - { id: 10, name: Finance }
+      - { id: 20, name: Sales }
+      - { id: 30, name: IT }
+
+    access_ports:
+      - { interface: "GigabitEthernet1/1", vlan: 10 }
+      - { interface: "GigabitEthernet1/2", vlan: 20 }
+      - { interface: "GigabitEthernet1/3", vlan: 30 }
+
+    trunk_ports:
+      - { interface: "GigabitEthernet0/1", allowed: "10,20,30" }
+      - { interface: "GigabitEthernet0/2", allowed: "10,20,30" }
+
+  tasks:
+    - name: Create VLANs
+      cisco.ios.ios_config:
+        lines:
+          - "vlan {{ item.id }}"
+          - "name {{ item.name }}"
+      loop: "{{ vlan_list }}"
+
+    - name: Configure access ports
+      cisco.ios.ios_config:
+        parents: "interface {{ item.interface }}"
+        lines:
+          - "switchport mode access"
+          - "switchport access vlan {{ item.vlan }}"
+          - "no shutdown"
+      loop: "{{ access_ports }}"
+      ignore_errors: yes
+
+    - name: Configure trunk ports
+      cisco.ios.ios_config:
+        parents: "interface {{ item.interface }}"
+        lines:
+          - "switchport trunk encapsulation dot1q"
+          - "switchport mode trunk"
+          - "switchport trunk allowed vlan {{ item.allowed }}"
+          - "no shutdown"
+      loop: "{{ trunk_ports }}"
+      ignore_errors: yes
+
+    - name: Verify VLANs
+      cisco.ios.ios_command:
+        commands:
+          - "show vlan brief"
+      register: vlan_output
+
+    - name: Verify trunk interfaces
+      cisco.ios.ios_command:
+        commands:
+          - "show interfaces trunk"
+      register: trunk_output
+
+    - name: Show verification results
+      debug:
+        msg:
+          - "=== VLAN Table ==="
+          - "{{ vlan_output.stdout[0] }}"
+          - "=== Trunk Interfaces ==="
+          - "{{ trunk_output.stdout[0] }}"
+
