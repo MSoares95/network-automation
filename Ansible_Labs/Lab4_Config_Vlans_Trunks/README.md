@@ -1,4 +1,4 @@
-🕒 Lab 4: Configuring VLANs and Trunks with Ansible
+## 🕒 Lab 4: Configuring VLANs and Trunks with Ansible
 
 ## 🎯 Objective
 In Lab 4, we automate the configuration of VLANs and trunks on Cisco switches using Ansible. 
