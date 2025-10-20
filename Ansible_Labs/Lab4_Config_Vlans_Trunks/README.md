@@ -8,7 +8,7 @@ This exercise demonstrates how to manage multiple devices consistently, safely, 
 
 ---
 
-##🌐 Medium Link:
+##🌐 Medium Link: https://medium.com/@mickaelsoares/network-automation-with-ansible-lab4-configure-vlans-and-trunks-f97775cd2d61
 
 ---
 
